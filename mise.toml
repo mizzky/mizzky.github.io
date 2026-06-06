@@ -1,0 +1,8 @@
+[tools]
+hugo-extended = "latest"
+
+[tasks.server]
+run = "hugo server -D"
+
+[tasks.build]
+run = "hugo --minify"

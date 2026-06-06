@@ -1,0 +1,46 @@
+baseURL = "https://example.org/"
+locale = "ja-jp"
+defaultContentLanguage = "ja"
+title = "myhugo"
+theme = "PaperMod"
+
+enableRobotsTXT = true
+enableEmoji = true
+hasCJKLanguage = true
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[params]
+env = "development"
+description = "学習内容を自分用にまとめるノート"
+defaultTheme = "auto"
+ShowReadingTime = true
+ShowShareButtons = false
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowToc = true
+TocOpen = false
+
+[params.homeInfoParams]
+Title = "myhugo"
+Content = "学習したことを、あとで読み返せる形で残していく場所。"
+
+[[menu.main]]
+identifier = "posts"
+name = "Posts"
+url = "/posts/"
+weight = 10
+
+[[menu.main]]
+identifier = "archives"
+name = "Archives"
+url = "/archives/"
+weight = 20
+
+[[menu.main]]
+identifier = "search"
+name = "Search"
+url = "/search/"
+weight = 30
