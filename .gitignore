@@ -4,6 +4,7 @@
 /assets/jsconfig.json
 hugo_stats.json
 /.hugo_build.lock
+/.hugo_cache/
 
 # OS
 .DS_Store

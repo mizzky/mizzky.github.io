@@ -1,4 +1,4 @@
-baseURL = "https://example.org/"
+baseURL = "https://mizzky.github.io/"
 locale = "ja-jp"
 defaultContentLanguage = "ja"
 title = "myhugo"
