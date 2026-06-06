@@ -1,6 +1,6 @@
 +++
 date = '2026-06-06T16:29:07+09:00'
-draft = true
+draft = false
 title = 'GitHub issueベースの学習方法'
 +++
 
