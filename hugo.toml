@@ -1,7 +1,7 @@
 baseURL = "https://mizzky.github.io/"
 locale = "ja-jp"
 defaultContentLanguage = "ja"
-title = "myhugo"
+title = "備忘録日記"
 theme = "PaperMod"
 
 enableRobotsTXT = true
@@ -24,7 +24,7 @@ ShowToc = true
 TocOpen = false
 
 [params.homeInfoParams]
-Title = "myhugo"
+Title = "備忘録日記"
 Content = "学習したことを、あとで読み返せる形で残していく場所。"
 
 [[menu.main]]
