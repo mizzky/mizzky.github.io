@@ -171,6 +171,9 @@ func LogEvent(c *gin.Context, in EventInput) {
 
 
 
+### 主題Issue
+- [構造化ロギングとエラーハンドリングの再設計 #60](https://github.com/mizzky/sol/issues/60)
+
 
 ### 設計Issue
 - [ログレベル運用定義書 #65](https://github.com/mizzky/sol/issues/65)

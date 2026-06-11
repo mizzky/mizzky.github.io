@@ -47,7 +47,7 @@ func New(text string) error {
 
 #### 基本的な使い方
 ```go
-slog.Info("hello, world", "user", os.Getenv("USER")
+slog.Info("hello, world", "user", os.Getenv("USER"))
 ```
 各種ログレベル(`Debug`,`Info`,`Warn`,`Error`)に対応するメソッドを提供。第一引数がメッセージ、それ移行は任意のKey/Valueを受け取る
 
@@ -73,8 +73,14 @@ func NewJSONLogger(w io.Writer, level slog.Leveler) *slog.Logger {
 - `slog.NewJSONHandler`を使うことでJSON形式のログ出力を行うことができる
 
 
-## 学習した詳細
+
+
+### 学習した詳細
 
 [Goのエラーラッピング（Error Wrapping） #63](https://github.com/mizzky/sol/issues/63)
 
 [構造化ログ (slog) の仕様調査 #64](https://github.com/mizzky/sol/issues/64)
+
+
+### 主題Issue
+[構造化ロギングとエラーハンドリングの再設計 #60](https://github.com/mizzky/sol/issues/60)
