@@ -1,6 +1,7 @@
 +++
 date = '2026-06-11T11:13:16+09:00'
 draft = false
+tags = ["log"]
 title = 'slogの実装を学ぶ'
 +++
 
