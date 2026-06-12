@@ -1,6 +1,6 @@
 +++
 date = '2026-06-12T10:25:44+09:00'
-draft = true
+draft = false
 title = 'DB学習と実行計画検証（計画編）'
 +++
 
