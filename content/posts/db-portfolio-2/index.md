@@ -32,7 +32,7 @@ ROLLBACK;
 - Bitmap Index Scan
   - インデックスを使ってBitmap Heap Scanがheapを読むためのbitmapを作る方式
 - Bitmap Heap Scan
-  - Bitmap Index Scanで作成したBitmap Heapを元に対象のheapページを読み取る方式
+  - Bitmap Index Scanで作成したbitmapを元に対象のheapページを読み取る方式
 
 ## 2. B-treeインデックスと複合インデックスの理解
 
@@ -71,7 +71,7 @@ OFFSET 20;
 - OFFSET: 先頭から何件を読み飛ばすかを指定
 
 ### OFFSETの問題点
-- `OFFSET`では先頭から何件読み飛ばすかで位置を決めるため、ページ取得の間にデータ追加削除されると重複・取得漏れが起きやすい
+- `OFFSET`では先頭から何件読み飛ばすかで位置を決めるため、ページ取得の間にデータ追加・削除されると重複・取得漏れが起きやすい
 - 指定行数読み飛ばすが直接ジャンプするわけではないため、`OFFSET`が大きくなるとパフォーマンスに影響しやすくなる
 
 ### Keyset Pagination
@@ -120,7 +120,7 @@ JOIN products p ON p.id = ci.product_id
 WHERE c.user_id = $1
 ORDER BY ci.id;
 ```
-親テーブルに子テーブルをJOINして１度にデータを取得し、アプリ側でデータを組み立てる。
+親テーブルと子テーブルをJOINして１度にデータを取得し、アプリ側でデータを組み立てる。
 ```go
 		rows, err := q.ListCartItemsByUser(c.Request.Context(), userID)
 		if err != nil {
@@ -147,7 +147,7 @@ ORDER BY ci.id;
 ```
 
 ### IN句による一括取得
-親クエリが子クエリをJOINするやり方以外に、子クエリの取得をIN句でまとめて取得する方法もある。この場合、親クエリの取得に１回、子クエリの取得に１回の合計２回になる。
+親テーブルと子テーブルをJOINするやり方以外に、子テーブルのデータをIN句でまとめて取得する方法もある。この場合、親テーブルの取得に１回、子テーブルの取得に１回の合計２回になる。
 ```sql
 SELECT *
 FROM order_items
@@ -170,7 +170,7 @@ for i := range orders {
 ```
 
 ### JOINとIN句の使い分け
-親クエリが子クエリをJOINして１回で取得する方法と、IN句で子クエリをまとめて取得する２クエリ方式の使い分けは以下のように考える
+JOINして１回で取得する方法と、IN句で取得する２クエリ方式の使い分けは以下のように考える
 
 - JOINが向いているケース
   - データが１対１、多対１
