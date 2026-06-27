@@ -1,4 +1,5 @@
 [tools]
+go = "1.25.11"
 hugo-extended = "latest"
 
 [tasks.server]
