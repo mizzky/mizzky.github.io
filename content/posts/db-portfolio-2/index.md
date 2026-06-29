@@ -258,6 +258,10 @@ db.BeginTx(ctx, nil)
    - MaxIdleTime：returnedAtからのidle状態でいられる時間
 
 
+### Stats
+- `*sql.DB`が内部に持つコネクションプールの状態と累積カウンタを読み出して構造体`DBStats`として返すメソッド
+
+
 ### 学習した詳細
 - [実行計画の読み方とインデックスの理解 #92](https://github.com/mizzky/sol/issues/92)
 - [B-Treeインデックスと複合インデックス #93](https://github.com/mizzky/sol/issues/93)
