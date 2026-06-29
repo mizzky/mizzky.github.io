@@ -225,6 +225,15 @@ db.ExecContext(ctx, "INSERT ...")
 db.BeginTx(ctx, nil)
 ```
 
+### Open
+- 登録済みのドライバを探し、`*sql.DB`を作る
+  - ドライバを型アサーションして`driver.DriverContext`を取得し、`driver.Connector`を作成する。
+  - ドライバ自身がConnectorを作る仕組みを持っていない場合は`database/sql`が`dsnConnector`を作って補う
+  ```go
+    return OpenDB(dsnConnector{dsn: dataSourceName, driver: driveri}), nil
+  ```
+
+
 ### 学習した詳細
 - [実行計画の読み方とインデックスの理解 #92](https://github.com/mizzky/sol/issues/92)
 - [B-Treeインデックスと複合インデックス #93](https://github.com/mizzky/sol/issues/93)
