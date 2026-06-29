@@ -232,6 +232,30 @@ db.BeginTx(ctx, nil)
   ```go
     return OpenDB(dsnConnector{dsn: dataSourceName, driver: driveri}), nil
   ```
+### SetMaxOpenConns
+- DBが同時に開いておける接続数の上限を設定するメソッド
+
+### SetMaxIdleConns
+- `freeConn`が保持する最大接続数を調整するメソッド
+- MaxOpenConnsよりもMaxIdleConnsが少ない場合は引き下げられる
+  - 例：MaxOpenConns->5 MaxIdleConns->10 全体で５本しか開けないのに10本保持することは不可能なため5本へ引き下げ
+
+### SetConnMaxLifetime
+- クリーナーの確認基準よりも短い寿命を引数に与えた場合、チャネル送信でクリーナーを呼び起こすメソッド
+```go
+	if d > 0 && d < db.shortestIdleTimeLocked() && db.cleanerCh != nil {
+		select {
+		case db.cleanerCh <- struct{}{}:
+		default:
+		}
+	}
+```
+
+### SetConnMaxIdleTime
+- `SetConnMaxLifetime`のMaxIdleTime版
+- ２つのメソッドは別の時間設定値を更新する。
+   - MaxLifetime：createdAtからの接続寿命
+   - MaxIdleTime：returnedAtからのidle状態でいられる時間
 
 
 ### 学習した詳細
