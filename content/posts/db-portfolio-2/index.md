@@ -236,8 +236,8 @@ db.BeginTx(ctx, nil)
 - DBが同時に開いておける接続数の上限を設定するメソッド
 
 ### SetMaxIdleConns
-- `freeConn`が保持する最大接続数を調整するメソッド
-- MaxOpenConnsよりもMaxIdleConnsが少ない場合は引き下げられる
+- `freeConn`が保持する最大アイドル接続数を調整するメソッド
+- MaxOpenConnsがMaxIdleConnsよりも少ない場合は引き下げられる
   - 例：MaxOpenConns->5 MaxIdleConns->10 全体で５本しか開けないのに10本保持することは不可能なため5本へ引き下げ
 
 ### SetConnMaxLifetime
